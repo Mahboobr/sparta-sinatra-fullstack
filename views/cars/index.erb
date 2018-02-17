@@ -1,0 +1,9 @@
+
+<h1>Welcome to your garage</h1>
+
+<% @cars.each do |car| %>
+<div>
+  <h3><a href="/<%= car.id %>"><%= car.manufacturer %></a></h3>
+  <p><%= car.model %></p>
+</div>
+<% end %>

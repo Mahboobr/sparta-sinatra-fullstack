@@ -1,0 +1,37 @@
+<form action="/<%= @cars.id %>" method="POST">
+  <div>
+    <label>Manufacturer</label>
+    <input type="text" name="manufacturer" placeholder="Enter a Manufacturer" value="<%= @cars.manufacturer %>">
+  </div>
+
+  <div>
+    <label>Model</label>
+    <input type="text" name="model" placeholder="Enter Model" value="<%= @cars.model %>">
+
+  </div>
+
+  <div>
+    <label>Year</label>
+    <input type="text" name="year" placeholder="Which Year" value="<%= @cars.year %>">
+
+  </div>
+
+  <div>
+    <label>Engine Size</label>
+    <input type="text" name="engine_size" placeholder="Enter an Engine size" value="<%= @cars.engine_size %>">
+
+  </div>
+
+  <div>
+    <label>Power</label>
+    <input type="text" name="power" placeholder="Enter Power" value="<%= @cars.power %>">
+
+  </div>
+
+  <div>
+    <input type="submit" value="Save Car Details">
+  </div>
+  <% if(@cars.id) %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>
