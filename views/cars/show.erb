@@ -1,0 +1,11 @@
+<h1><%= @cars.manufacturer %></h1>
+<p><%= @cars.model %></p>
+<p><%= @cars.year %></p>
+<p><%= @cars.engine_size %></p>
+<p><%= @cars.power %></p>
+<a href="/<%= @cars.id %>/edit">edit</a>
+
+<form action="/<%= @cars.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
