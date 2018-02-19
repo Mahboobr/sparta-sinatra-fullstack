@@ -1,0 +1,27 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" class="all_description">
+      <form action="/<%= @description.id %>" method="POST">
+
+        <div class="form-group">
+          <label for="model">Model</label>
+          <input type="text" class="form-control" name="model" placeholder="Enter Model" value="<%= @description.model %>">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" name="year" placeholder="Description" value="<%= @description.year %>">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Save Info">
+        </div>
+        <% if(@description.id) %>
+          <input type="hidden" name="_method" value="PUT">
+        <% end %>
+      </form>
+    </div>
+  </div>
+</div>
