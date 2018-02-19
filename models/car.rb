@@ -14,10 +14,8 @@ class Car
       conn = Car.open_connection
 
       if(!self.id)
-        # Insert a new record in to the database
         sql = "INSERT INTO cars (manufacturer , model , year , engine_size , power) VALUES ( '#{self.manufacturer}', '#{self.model}', '#{self.year}', '#{self.engine_size}', '#{self.power}')"
       else
-        # Update an existing one
         sql = "UPDATE cars SET manufacturer='#{self.manufacturer}', model='#{self.model}', year='#{self.year}', engine_size='#{self.engine_size}', power='#{self.power}' WHERE id = #{self.id}"
       end
 
@@ -35,7 +33,6 @@ class Car
 
         results = conn.exec(sql)
 
-        # create an array of post objects
         cars = results.map do |tuple|
             self.hydrate tuple
         end
@@ -50,10 +47,8 @@ class Car
 
         sql = "SELECT * FROM cars WHERE id = #{id} LIMIT 1"
 
-        # PG always returns an array
         cars = conn.exec(sql)
 
-        # bind just the first and return
         car = self.hydrate cars[0]
 
         car
@@ -66,7 +61,6 @@ class Car
 
       sql = "DELETE FROM cars where id = #{id}"
 
-      # handle delete here
       conn.exec(sql)
 
   end
